@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen Soul Yoga | Awaken Your Spirit</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600&display=swap');
+
+        /* RESET & GLOBAL */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #FAFAFA; /* Off-white background */
+            color: #5D5D5D;
+            font-family: 'Lato', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+            color: #4A4063; /* Deep Lavender/Purple */
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #9C89B8; /* Soft Lavender */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #786890;
+            transform: translateY(-2px);
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 50px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .logo span { color: #9C89B8; }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 1em;
+            font-weight: 400;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: #9C89B8; }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* Verified Image: Woman Meditating */
+            background: linear-gradient(rgba(74, 64, 99, 0.4), rgba(74, 64, 99, 0.4)), url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: #f0f0f0;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+        }
+        .section-title span { color: #9C89B8; font-style: italic; }
+
+        /* ABOUT SECTION */
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-text { flex: 1; min-width: 300px; }
+        .about-text h3 { font-size: 1.8em; margin-bottom: 20px; }
+        .about-text p { margin-bottom: 20px; font-size: 1.1em; color: #666; }
+
+        .about-img { flex: 1; min-width: 300px; }
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* CLASSES GRID */
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .class-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            text-align: center;
+        }
+        .class-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+
+        .class-img {
+            height: 250px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .class-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .class-card:hover .class-img img { transform: scale(1.1); }
+
+        .class-info { padding: 25px; }
+        .class-info h3 { margin-bottom: 10px; color: #4A4063; }
+        .class-info p { font-size: 0.9em; color: #888; }
+        .level {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 5px 15px;
+            background: #F0EEF4;
+            color: #9C89B8;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 700;
+        }
+
+        /* INSTRUCTORS */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .team-member { text-align: center; }
+        .team-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px auto;
+            border: 5px solid #F0EEF4;
+        }
+        .team-img img { width: 100%; height: 100%; object-fit: cover; }
+        .team-member h3 { font-size: 1.4em; margin-bottom: 5px; }
+        .team-member p { color: #9C89B8; font-weight: 700; font-size: 0.9em; }
+
+        /* CONTACT SECTION */
+        .contact-container {
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 700; color: #555; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+        }
+        .form-group textarea { height: 120px; resize: none; }
+
+        /* FOOTER */
+        footer {
+            background: #4A4063;
+            color: #fff;
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+        }
+        footer p { opacity: 0.8; font-size: 0.9em; }
+
+        /* MOBILE */
+        @media(max-width: 768px) {
+            header { padding: 15px 20px; }
+            .nav-links { display: none; } /* Simplified for mobile */
+            .hero h1 { font-size: 2.5em; }
+            section { padding: 50px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">ZenSoul<span>Yoga</span></a>
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#classes">Classes</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Join</a>
+        </nav>
+    </header>
+
+    <div class="hero" id="home">
+        <div>
+            <h1>Awaken Your <span>Spirit</span></h1>
+            <p>A sanctuary for movement, mindfulness, and inner peace. Start your journey today.</p>
+            <a href="#classes" class="btn">View Schedule</a>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2 class="section-title">Welcome to <span>Zen Soul</span></h2>
+        <div class="about-container">
+            <div class="about-text">
+                <h3>More Than Just a Studio</h3>
+                <p>We believe that yoga is a practice for life, not just for the mat. Our studio is designed to be a haven from the busy world outside, a place where you can reconnect with your true self.</p>
+                <p>Whether you are looking to build physical strength, find mental clarity, or simply breathe a little deeper, our compassionate instructors are here to guide you.</p>
+                <a href="#team" class="btn">Meet Our Guides</a>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&w=800&q=80" alt="Yoga Studio">
+            </div>
+        </div>
+    </section>
+
+    <section id="classes">
+        <h2 class="section-title">Our <span>Classes</span></h2>
+        <div class="classes-grid">
+            <div class="class-card">
+                <div class="class-img">
+                    <img src="https://images.unsplash.com/photo-1599447421405-0c320121f430?auto=format&fit=crop&w=600&q=80" alt="Vinyasa Flow">
+                </div>
+                <div class="class-info">
+                    <h3>Vinyasa Flow</h3>
+                    <p>Fluid movement synchronized with breath.</p>
+                    <span class="level">All Levels</span>
+                </div>
+            </div>
+            <div class="class-card">
+                <div class="class-img">
+                    <img src="https://images.unsplash.com/photo-1544367563-121910aa6e2c?auto=format&fit=crop&w=600&q=80" alt="Hatha Yoga">
+                </div>
+                <div class="class-info">
+                    <h3>Hatha Alignment</h3>
+                    <p>Focus on posture and holding poses.</p>
+                    <span class="level">Beginner Friendly</span>
+                </div>
+            </div>
+            <div class="class-card">
+                <div class="class-img">
+                    <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?auto=format&fit=crop&w=600&q=80" alt="Yin Yoga">
+                </div>
+                <div class="class-info">
+                    <h3>Deep Restore</h3>
+                    <p>Slow, deep stretches for relaxation.</p>
+                    <span class="level">Relaxing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <h2 class="section-title">Expert <span>Guides</span></h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=400&q=80" alt="Yoga Teacher">
+                </div>
+                <h3>Elena Rose</h3>
+                <p>Founder & Lead Teacher</p>
+            </div>
+            <div class="team-member">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=400&q=80" alt="Male Yoga Teacher">
+                </div>
+                <h3>Marcus Le</h3>
+                <p>Power Yoga Specialist</p>
+            </div>
+            <div class="team-member">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=400&q=80" alt="Meditation Teacher">
+                </div>
+                <h3>Sarah Jenkins</h3>
+                <p>Meditation Guide</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Start Your <span>Journey</span></h2>
+        <div class="contact-container">
+            <p style="margin-bottom: 30px;">
+                New Student Special: <strong>$30 for 2 Weeks Unlimited</strong>. 
+                Fill out the form below to claim your offer or ask us a question.
+            </p>
+            <form onsubmit="event.preventDefault(); alert('Message sent! Namaste.');">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="Your Email Address" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea placeholder="How can we help you?"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Zen Soul Yoga. All Rights Reserved.</p>
+        <p>123 Serenity Lane, Wellness City, CA 90210 | (555) 123-4567</p>
+    </footer>
+
+</body>
+</html>
